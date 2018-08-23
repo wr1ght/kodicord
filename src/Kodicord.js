@@ -24,7 +24,7 @@ class Kodicord {
                 };
                 if (!this.artSet) {
                     console.log('Setting album art...');
-                    const albumArtURI = await this.getAlbumArt(songData.song.artist[0], songData.song.album);
+                    const albumArtURI = await this.getAlbumArt(songData.song.artist[0], songData.song.album, `${songData.song.album}_${songData.song.title.slice(0,2)}`);
                     if (albumArtURI != 'defaultcover') this.cover = albumArtURI;
                     return;
                 };
@@ -62,7 +62,7 @@ class Kodicord {
         }).set('Authorization', process.env.USER_TOKEN);
     }
 
-    async getAlbumArt(artist, albumName) {
+    async getAlbumArt(artist, albumName, assetName) {
         const response = await superagent.get(`http://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=${process.env.LASTFM_KEY}&artist=${artist}&album=${albumName}&format=json`)
             .set('Authorization', process.env.USER_TOKEN);
         
@@ -74,7 +74,7 @@ class Kodicord {
         let artworkURL = response.body.album.image.find(image => image.size == 'large')['#text'];
         let uri = await dataURI.encodeFromURL(artworkURL);
         this.artSet = true;
-        let assetName = response.body.album.artist.replace(/\W/g, '').toLowerCase();
+        assetName = assetName.replace(/\W/g, '').toLowerCase();
         this.updateCover(uri, assetName);
         return assetName;
     }
