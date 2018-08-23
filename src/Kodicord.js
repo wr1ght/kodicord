@@ -16,8 +16,8 @@ class Kodicord {
         this.discordRPC.on('ready', () => {
             console.log(`Connecting as ${process.env.CLIENT_ID}`);
 
-            this.interval = setInterval(async () => {
-                let songData = await this.getCurrentSong();
+            setInterval(async () => {
+                const songData = await this.getCurrentSong();
                 if (!songData.song) {
                     this.discordRPC.clearActivity();
                     return console.log('Failed to update status... no song playing... checking again');
@@ -26,7 +26,7 @@ class Kodicord {
                     console.log('Setting album art...');
                     const albumArtURI = await this.getAlbumArt(songData.song.artist[0], songData.song.album, `${songData.song.album}_${songData.song.title.slice(0,2)}`);
                     if (albumArtURI != 'defaultcover') this.cover = albumArtURI;
-                    return;
+                    return null;
                 };
 
                 const discordResponse = await superagent.get(`https://discordapp.com/api/oauth2/applications/${process.env.CLIENT_ID}`).set('Authorization', process.env.USER_TOKEN);
@@ -47,7 +47,8 @@ class Kodicord {
 
     async getPlayerID() {
         let response = await this.connection.Player.GetActivePlayers();
-        if (!response.result[0] || response.result[0].type !== 'audio') return;
+        if (!response.result[0] || response.result[0].type !== 'audio') return null;
+
         return response.result[0].playerid;
     }
 
@@ -82,6 +83,7 @@ class Kodicord {
     async getCurrentSong() {
         let playerID = await this.getPlayerID();
         if (typeof playerID != 'number') return new Error('No active player');
+
         let response = await this.connection.Player.GetItem({
             properties: ["title", "album", "artist", "duration", "thumbnail", "file", "fanart", "streamdetails"], 
             playerid: playerID
@@ -95,6 +97,7 @@ class Kodicord {
         let songData = await this.getCurrentSong();
         if (!songData.song) return new Error('No active song');
         if (songData.song.album.length < 2) songData.song.album = songData.song.album + '**';
+        
         this.discordRPC.setActivity({
             details: `by ${songData.song.artist.join(', ')}`,
             state: `on ${songData.song.album}`,
