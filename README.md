@@ -22,6 +22,7 @@ After creating the application, head over to the `Rich Presence` tab and then `A
 Once that's enabled, you'll need to edit `.env.default` with the necessary values and rename it to `.env`. (it's self explanatory)
 Then, you're all set. I haven't added a fancy UI yet so for now you'll have to run the command once through the command line and let it sit in the background.
 `npm install`
+
 `npm start`
 
 #### License
