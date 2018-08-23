@@ -56,7 +56,7 @@ class Kodicord {
         if (response.body.find(asset => asset.name != 'defaultcover')) await superagent.delete(`https://discordapp.com/api/oauth2/applications/${process.env.CLIENT_ID}/assets/${response.body.find(asset => asset.name != 'defaultcover').id}`).set('Authorization', process.env.USER_TOKEN);
         
         return await superagent.post(`https://discordapp.com/api/oauth2/applications/${process.env.CLIENT_ID}/assets`).send({
-            name: name || 'defaultcover',
+            name: name || 'albumcover',
             image: dataURI,
             type: 1
         }).set('Authorization', process.env.USER_TOKEN);
