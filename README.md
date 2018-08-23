@@ -31,6 +31,8 @@ Then, you're all set. I haven't added a fancy UI yet so for now you'll have to r
 
 `npm start`
 
+If all goes well you will end up with a presence like this:
+![screenshot2]((https://user-images.githubusercontent.com/30602871/44511415-7c3c7c00-a685-11e8-890f-f85c48be2420.png)
 
 NOTICE: Album covers may take time to update due to Discord caching.
 #### License
