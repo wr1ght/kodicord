@@ -64,19 +64,17 @@ class Kodicord {
     }
 
     async getAlbumArt(artist, albumName, assetName) {
-        const response = await superagent.get(`http://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=${process.env.LASTFM_KEY}&artist=${artist}&album=${albumName}&format=json`)
-            .set('Authorization', process.env.USER_TOKEN);
-        
+        const response = await superagent.get(`http://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=${process.env.LASTFM_KEY}&artist=${artist}&album=${albumName}&format=json`);
+
         if (response.body.error || response.body.album.image[0]['#text'].length < 1) {
             this.artSet = true;
             return 'defaultcover';
         }
 
-        let artworkURL = response.body.album.image.find(image => image.size == 'large')['#text'];
-        let uri = await dataURI.encodeFromURL(artworkURL);
+        let uri = await dataURI.encodeFromURL(response.body.album.image.find(image => image.size == 'large')['#text']);
         this.artSet = true;
         assetName = assetName.replace(/\W/g, '').toLowerCase();
-        this.updateCover(uri, assetName);
+        await this.updateCover(uri, assetName);
         return assetName;
     }
 
@@ -97,7 +95,7 @@ class Kodicord {
         let songData = await this.getCurrentSong();
         if (!songData.song) return new Error('No active song');
         if (songData.song.album.length < 2) songData.song.album = songData.song.album + '**';
-        
+
         this.discordRPC.setActivity({
             details: `by ${songData.song.artist.join(', ')}`,
             state: `on ${songData.song.album}`,

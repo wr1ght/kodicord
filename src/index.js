@@ -14,7 +14,7 @@ async function startRPC() {
     spawnedProcess.on('exit', code => {
         console.log('Song changed, restarting RPC process.');
         delete(spawnedProcess);
-        setTimeout(startRPC, 1000);
+        startRPC()
     });
 }
 
