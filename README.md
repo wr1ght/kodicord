@@ -31,6 +31,8 @@ Then, you're all set. I haven't added a fancy UI yet so for now you'll have to r
 
 `npm start`
 
+
+NOTICE: Album covers may take time to update due to Discord caching.
 #### License
 This repository has been released under the MIT license.
 
