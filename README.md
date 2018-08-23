@@ -30,6 +30,7 @@ Then, you're all set. I haven't added a fancy UI yet so for now you'll have to r
 `npm install`
 
 `npm start`
+
 NOTICE: Album covers may take time to update due to Discord caching.
 
 If all goes well you will end up with a presence like this:
@@ -41,4 +42,5 @@ This repository has been released under the MIT license.
 
 ------------------
 <p>Project maintained by Wright (wr1ght)
+
 Contact me on Discord: wright#0666</p>
