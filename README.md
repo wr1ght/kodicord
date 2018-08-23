@@ -3,6 +3,7 @@
     <h2>Kodicord</h2>
     <p align="center">
         <p>Kodi Music rich presence for Discord</p>
+        <p>just for music, nothing else.</p>
         <p>Messy (and might be API abuse? meh.) but works.</p>
     </p>
 </div>
