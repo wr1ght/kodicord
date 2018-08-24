@@ -5,6 +5,9 @@
 ​        <p>Kodi Music rich presence for Discord</p>
 ​        <p>just for music, nothing else.</p>
 ​    </p>
+    <a href="https://www.npmjs.com/package/kodicord"><img src="https://img.shields.io/npm/v/kodicord.svg?maxAge=3600" alt="NPM version" /></a>
+    <a href="https://www.npmjs.com/package/kodicord"><img src="https://img.shields.io/npm/dt/kodicord.svg?maxAge=3600" alt="NPM downloads" /></a>
+    <a href="https://david-dm.org/wr1ght/kodicord"><img src="https://img.shields.io/david/wr1ght/kodicord.svg?maxAge=3600" alt="Dependencies" /></a>
 </div>
 
 ### Contents
