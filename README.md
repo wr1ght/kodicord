@@ -18,15 +18,15 @@
 
  
 
-\### Contents
+### Contents
 
-\* [Notice](#notice)
+* [Notice](#notice)
 
-\* [How to use](#how-to-use)
+* [How to use](#how-to-use)
 
-\* [License](#license)
+* [License](#license)
 
-\------------------
+------------------
 
 #### Notice
 
@@ -36,7 +36,7 @@ By enabling the `API_ABUSE` setting in `.env`, you will be considered as abusing
 
 Album covers may take up to 15 seconds to update due to Discord caching. This usually is not the case.
 
-\#### How to use
+#### How to use
 
 In order for this to work, you must have remote connections via HTTP enabled on your XMBC/Kodi device.
 
@@ -56,7 +56,7 @@ You'll need to upload a default album cover for when the application cannot fetc
 
 Upload any image and name the asset specifically **defaultcover**.
 
-<img src="https://user-images.githubusercontent.com/30602871/44582529-e4678c80-a76f-11e8-8367-5daa43772844.png" height="100" width="100">
+![screenshot](https://user-images.githubusercontent.com/30602871/44582529-e4678c80-a76f-11e8-8367-5daa43772844.png)
 
  #### Step Three: Editing the configuration
 
@@ -84,7 +84,7 @@ No, I'm kidding. You won't be banned for simply using this integration... unless
 
 If all goes well you'll end up with a presence like this: (left = API abuse, right = no API abuse)
 
- <img src="https://user-images.githubusercontent.com/30602871/44511415-7c3c7c00-a685-11e8-890f-f85c48be2420.png" height="100" width="100"> <img src="https://user-images.githubusercontent.com/30602871/44582469-b7b37500-a76f-11e8-814a-b11143208964.png" height="100" width="100">
+ ![screenshot](https://user-images.githubusercontent.com/30602871/44511415-7c3c7c00-a685-11e8-890f-f85c48be2420.png) ![screenshot](https://user-images.githubusercontent.com/30602871/44582469-b7b37500-a76f-11e8-814a-b11143208964.png)
 
 
 
@@ -92,13 +92,13 @@ If all goes well you'll end up with a presence like this: (left = API abuse, rig
 
  
 
-\#### License
+#### License
 
 This repository has been released under the MIT license.
 
  
 
-\------------------
+------------------
 
 <p>Project maintained by Wright (wr1ght)
 
