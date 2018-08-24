@@ -8,7 +8,6 @@ class Http {
     }
     
     request(options, postData) {
-        console.log(`New request: Type (${options.method}) URL (${options.hostname}) over ${this.type}`);
         return new Promise((resolve, reject) => {
             const request = this.nodeHttp.request(options, (response) => {
                 if (response.statusCode < 200 || response.statusCode >= 300) return reject(response.statusMessage || `Status ${response.statusCode}`);
