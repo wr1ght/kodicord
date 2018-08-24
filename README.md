@@ -18,6 +18,7 @@
 ------------------
 
 #### Notice
+**this is completely safe if you keep the `API_ABUSE` setting disabled!**
 
 This is an experimental integration and incorrect usage may be considered as Discord API abuse. If you are not comfortable entering your Discord account token into this integration then it's not for you.
 
