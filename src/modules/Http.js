@@ -5,6 +5,12 @@ class Http {
     constructor(type = 'https') {
         this.type = type;
         this.nodeHttp = require(type);
+        this.defaultHeaders = {
+            'Cache-Control': 'no-cache',
+            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) discord/0.0.251 Chrome/56.0.2924.87 Discord/1.6.15 Safari/537.36',
+            Origin: 'discordapp.com',
+            Referer: 'https://discordapp.com/activity',
+        };
     }
     
     request(options, postData) {
@@ -30,14 +36,8 @@ class Http {
 
     async delete({ url, authorization, options = {} }) {
         const { hostname, path } = parse(url);
-        let headers = {};
-        if (authorization) headers = {
-            'Cache-Control': 'no-cache',
-            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) discord/0.0.251 Chrome/56.0.2924.87 Discord/1.6.15 Safari/537.36',
-            Origin: 'discordapp.com',
-            Referer: 'https://discordapp.com/activity',
-            Authorization: authorization,
-        }
+        let headers = this.defaultHeaders;
+        if (authorization) headers.Authorization = authorization;
         return await this.request({
             method: 'DELETE',
             headers,
@@ -51,15 +51,10 @@ class Http {
         let headers = {
             'Content-Type': 'application/json',
             'Accept': 'application/json',
+            ...this.defaultHeaders
         };
-        if (authorization) headers = {
-            'Cache-Control': 'no-cache',
-            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) discord/0.0.251 Chrome/56.0.2924.87 Discord/1.6.15 Safari/537.36',
-            Origin: 'discordapp.com',
-            Referer: 'https://discordapp.com/activity',
-            Authorization: authorization,
-            ...headers
-        }
+        if (authorization) headers.Authorization = authorization;
+        
         return await this.request({
             method: put ? 'PUT' : 'POST',
             headers,
@@ -68,16 +63,11 @@ class Http {
         }, data);
     }
 
-    async get({ url, authorization, headers = {}, options = { encoding: 'utf8' } }) {
+    async get({ url, authorization, options = { encoding: 'utf8' } }) {
         const { hostname, path, port } = parse(url);
-        if (authorization) headers = {
-            'Cache-Control': 'no-cache',
-            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) discord/0.0.251 Chrome/56.0.2924.87 Discord/1.6.15 Safari/537.36',
-            Origin: 'discordapp.com',
-            Referer: 'https://discordapp.com/activity',
-            Authorization: authorization,
-            ...headers
-        }
+        let headers = this.defaultHeaders;
+        if (authorization) headers.Authorization = authorization;
+  
         return await this.request({
             method: 'GET',
             port,
@@ -88,16 +78,11 @@ class Http {
         });
    };
 
-    async getJSON({ url, authorization, headers = {}, options = {} }) {
+    async getJSON({ url, authorization, options = {} }) {
         const { hostname, path, port } = parse(url);
-        if (authorization) headers = {
-            'Cache-Control': 'no-cache',
-            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) discord/0.0.251 Chrome/56.0.2924.87 Discord/1.6.15 Safari/537.36',
-            Origin: 'discordapp.com',
-            Referer: 'https://discordapp.com/activity',
-            Authorization: authorization,
-            ...headers
-        }
+        let headers = this.defaultHeaders;
+        if (authorization) headers.Authorization = authorization;
+
         const response = await this.request({
             method: 'GET',
             port,
