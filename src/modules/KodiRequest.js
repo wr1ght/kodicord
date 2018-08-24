@@ -1,8 +1,9 @@
 const Http = require('./Http');
+const { parse } = require('url');
 
 class KodiRequest {
     constructor(connection) {
-        this.http = new Http('http');
+        this.http = new Http(parse(connection).protocol.replace(':', ''));
         this.connection = connection;
         this.defaultData = {
             id: 1,
