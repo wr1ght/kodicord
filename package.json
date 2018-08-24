@@ -1,6 +1,6 @@
 {
   "name": "kodicord",
-  "version": "2.0.0",
+  "version": "2.0.5",
   "description": "Kodi music rich presence for Discord",
   "main": "src/index.js",
   "scripts": {
