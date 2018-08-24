@@ -1,22 +1,12 @@
 <div align="center">
-
 ​    <img src="https://kodi.wiki/images/thumb/4/43/Side-by-side-dark-transparent.png/300px-Side-by-side-dark-transparent.png">
-
 ​    <h2>Kodicord</h2>
-
 ​    <p align="center">
-
 ​        <p>Kodi Music rich presence for Discord</p>
-
 ​        <p>just for music, nothing else.</p>
-
 ​        <p>Messy (and might be API abuse? meh.) but works.</p>
-
 ​    </p>
-
 </div>
-
- 
 
 ### Contents
 
