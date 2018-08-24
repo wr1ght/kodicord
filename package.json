@@ -1,6 +1,6 @@
 {
   "name": "kodicord",
-  "version": "1.5.2",
+  "version": "2.0.0",
   "description": "Kodi music rich presence for Discord",
   "main": "src/index.js",
   "scripts": {
@@ -11,10 +11,7 @@
   "license": "MIT",
   "dependencies": {
     "discord-rpc": "^3.0.0",
-    "dotenv": "^6.0.0",
-    "image-data-uri": "^1.1.1",
-    "kodi-rpc": "^1.0.0",
-    "superagent": "^3.8.3"
+    "dotenv": "^6.0.0"
   },
   "devDependencies": {},
   "repository": {
